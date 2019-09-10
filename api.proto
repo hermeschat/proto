@@ -29,7 +29,7 @@ message Channel {
     string type = 3;
     map<string, string> roles = 4;
     string channelId = 5;
-    Message lastMessage = 6;
+    Messages messages = 6;
     
 }
 

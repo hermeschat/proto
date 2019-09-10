@@ -4,7 +4,7 @@ service Hermes {
     rpc EventBuff(stream Event) returns(stream Event);
     rpc Echo(Empty) returns (Empty); // for checking connection and jwt
     rpc ListChannels(Empty) returns (Channels); //aggreate return aggregated account
-    rpc ListMessages (channelID) returns(Messages);
+    rpc GetChannel (channelID) returns(Messages);
 }
 message channelID {
     string id = 1;

@@ -3,10 +3,8 @@ syntax = "proto3";
 service Hermes {
     rpc EventBuff(stream Event) returns(stream Event);
     rpc Echo(Empty) returns (Empty); // for checking connection and jwt
-    rpc CreateSession (CreateSessionRequest) returns (CreateSessionResponse);
     rpc ListChannels(Empty) returns (Channels); //aggreate return aggregated account
     rpc ListMessages (channelID) returns(Messages);
-    rpc GetChannel(channelID) returns(Channel);
 }
 message channelID {
     string id = 1;
@@ -40,7 +38,6 @@ message Event {
         KeepAliveSignal keep = 3;
         DestroySessionRequest destorySess = 4;
         Message newMessage = 5;
-        JoinSignal join = 6;
     }
 }
 message Empty{
@@ -52,9 +49,6 @@ message KeepAliveSignal {
 message DeliveredSignal {
     string messageID = 1;
     string channelID = 2;
-}
-message JoinSignal {
-    string sessionId = 1;
 }
 
 message DestroySessionRequest {

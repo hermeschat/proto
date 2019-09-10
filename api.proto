@@ -4,7 +4,7 @@ service Hermes {
     rpc EventBuff(stream Event) returns(stream Event);
     rpc Echo(Empty) returns (Empty); // for checking connection and jwt
     rpc ListChannels(Empty) returns (Channels); //aggreate return aggregated account
-    rpc GetChannel (channelID) returns(Messages);
+    rpc GetChannel (channelID) returns(Channel);
 }
 message channelID {
     string id = 1;
@@ -13,14 +13,12 @@ message ReadSignal {
     string messageID = 1;
     string channelID = 2;
 }
-
 message Messages {
     repeated Message msg = 1;
 }
 message Channels {
     repeated Channel msg = 1;
 }
-
 message Channel {
     repeated string members = 1;
     string name = 2;
@@ -30,29 +28,18 @@ message Channel {
     Messages messages = 6;
     
 }
-
 message Event {
     oneof event {
-        DeliveredSignal dlv = 1;
+        DeliverSignal dlv = 1;
         ReadSignal read = 2;
-        KeepAliveSignal keep = 3;
-        DestroySessionRequest destorySess = 4;
         Message newMessage = 5;
     }
 }
-message Empty{
-    string status = 1;
-}
-message KeepAliveSignal {
+message Empty{}
 
-}
-message DeliveredSignal {
+message DeliverSignal {
     string messageID = 1;
     string channelID = 2;
-}
-
-message DestroySessionRequest {
-    string SessionId = 1;
 }
 
 message Message {
@@ -65,33 +52,4 @@ message Message {
     string messageID = 7;
     string channelID = 8;
     string time=9;
-}
-message GetOrCreateSessionResponse {
-    string SessionID =1;
-    string LastActivity=2;
-	string UserID = 3;
-	string UserIP =4;
-	string UserAgent=5;
-	string ClientVersion=6;
-    string Node = 7;
-    string Code = 8;
-}
-message CreateSessionRequest {
-    string ClientType = 1;
-	string UserIP = 3;
-	string UserAgent = 4;
-	string ClientVersion = 5;
-	string Node = 6;
-}
-message CreateSessionResponse {
-    string sessionID = 1;
-}
-
-message Response {
-    string code = 1;
-    string error = 2;
-}
-message UserDiscoveryEvent {
-    string UserID = 1;
-    string ChannelID = 2;
 }

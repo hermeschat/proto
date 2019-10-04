@@ -17,9 +17,7 @@ message ReadSignal {
     string messageID = 1;
     string channelID = 2;
 }
-message Messages {
-    repeated Message msg = 1;
-}
+
 message Channels {
     repeated Channel msg = 1;
 }
@@ -29,8 +27,8 @@ message Channel {
     string type = 3;
     map<string, string> roles = 4;
     string channelId = 5;
-    Messages messages = 6;
-    
+    map<string, Message> messages = 6;
+    string unread = 7;
 }
 message Event {
     oneof event {
@@ -56,4 +54,5 @@ message Message {
     string messageID = 7;
     string channelID = 8;
     string time=9;
+    string status = 10;
 }

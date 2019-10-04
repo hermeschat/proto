@@ -13,9 +13,10 @@ message GetChannelRequest {
     string id=1;
     string timestamp=2;
 }
-message ReadSignal {
+message Signal {
     string messageID = 1;
     string channelID = 2;
+    string status = 3;
 }
 
 message Channels {
@@ -32,17 +33,12 @@ message Channel {
 }
 message Event {
     oneof event {
-        DeliverSignal dlv = 1;
-        ReadSignal read = 2;
-        Message newMessage = 5;
+        Signal signal = 1;
+        Message newMessage = 2;
     }
 }
 message Empty{}
 
-message DeliverSignal {
-    string messageID = 1;
-    string channelID = 2;
-}
 
 message Message {
     string messageType = 1;

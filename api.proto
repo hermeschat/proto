@@ -50,5 +50,5 @@ message Message {
     string messageID = 7;
     string channelID = 8;
     string time=9;
-    int status = 10;
+    int32 status = 10;
 }

@@ -16,7 +16,7 @@ message GetChannelRequest {
 message Signal {
     string messageID = 1;
     string channelID = 2;
-    string status = 3;
+    int32 status = 3;
 }
 
 message Channels {

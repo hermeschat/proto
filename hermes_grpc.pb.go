@@ -32,7 +32,7 @@ func NewHermesClient(cc grpc.ClientConnInterface) HermesClient {
 }
 
 func (c *hermesClient) EventBuff(ctx context.Context, opts ...grpc.CallOption) (Hermes_EventBuffClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_Hermes_serviceDesc.Streams[0], "/Hermes/EventBuff", opts...)
+	stream, err := c.cc.NewStream(ctx, &_Hermes_serviceDesc.Streams[0], "/proto.Hermes/EventBuff", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +64,7 @@ func (x *hermesEventBuffClient) Recv() (*Event, error) {
 
 func (c *hermesClient) Echo(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Empty, error) {
 	out := new(Empty)
-	err := c.cc.Invoke(ctx, "/Hermes/Echo", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/proto.Hermes/Echo", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +73,7 @@ func (c *hermesClient) Echo(ctx context.Context, in *Empty, opts ...grpc.CallOpt
 
 func (c *hermesClient) ListChannels(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Channels, error) {
 	out := new(Channels)
-	err := c.cc.Invoke(ctx, "/Hermes/ListChannels", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/proto.Hermes/ListChannels", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +82,7 @@ func (c *hermesClient) ListChannels(ctx context.Context, in *Empty, opts ...grpc
 
 func (c *hermesClient) GetChannel(ctx context.Context, in *GetChannelRequest, opts ...grpc.CallOption) (*Channel, error) {
 	out := new(Channel)
-	err := c.cc.Invoke(ctx, "/Hermes/GetChannel", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/proto.Hermes/GetChannel", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -158,7 +158,7 @@ func _Hermes_Echo_Handler(srv interface{}, ctx context.Context, dec func(interfa
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Hermes/Echo",
+		FullMethod: "/proto.Hermes/Echo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(HermesServer).Echo(ctx, req.(*Empty))
@@ -176,7 +176,7 @@ func _Hermes_ListChannels_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Hermes/ListChannels",
+		FullMethod: "/proto.Hermes/ListChannels",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(HermesServer).ListChannels(ctx, req.(*Empty))
@@ -194,7 +194,7 @@ func _Hermes_GetChannel_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Hermes/GetChannel",
+		FullMethod: "/proto.Hermes/GetChannel",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(HermesServer).GetChannel(ctx, req.(*GetChannelRequest))
@@ -203,7 +203,7 @@ func _Hermes_GetChannel_Handler(srv interface{}, ctx context.Context, dec func(i
 }
 
 var _Hermes_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "Hermes",
+	ServiceName: "proto.Hermes",
 	HandlerType: (*HermesServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

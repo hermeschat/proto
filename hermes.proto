@@ -1,5 +1,5 @@
 syntax = "proto3";
-
+option go_package = "github.com/hermeschat/proto";
 service Hermes {
     rpc EventBuff(stream Event) returns(stream Event);
     rpc Echo(Empty) returns (Empty); // for checking connection and jwt

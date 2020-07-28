@@ -1,2 +1,2 @@
 golang:
-	protoc --go-grpc_out=proto --go_out=proto blackgate.proto
+	protoc --go-grpc_out=. --go_out=. hermes.proto

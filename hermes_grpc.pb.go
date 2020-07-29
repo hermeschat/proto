@@ -18,9 +18,6 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type HermesClient interface {
 	EventBuff(ctx context.Context, opts ...grpc.CallOption) (Hermes_EventBuffClient, error)
-	Echo(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Empty, error)
-	ListChannels(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Channels, error)
-	GetChannel(ctx context.Context, in *GetChannelRequest, opts ...grpc.CallOption) (*Channel, error)
 }
 
 type hermesClient struct {
@@ -62,41 +59,11 @@ func (x *hermesEventBuffClient) Recv() (*Event, error) {
 	return m, nil
 }
 
-func (c *hermesClient) Echo(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Empty, error) {
-	out := new(Empty)
-	err := c.cc.Invoke(ctx, "/proto.Hermes/Echo", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *hermesClient) ListChannels(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Channels, error) {
-	out := new(Channels)
-	err := c.cc.Invoke(ctx, "/proto.Hermes/ListChannels", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *hermesClient) GetChannel(ctx context.Context, in *GetChannelRequest, opts ...grpc.CallOption) (*Channel, error) {
-	out := new(Channel)
-	err := c.cc.Invoke(ctx, "/proto.Hermes/GetChannel", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // HermesServer is the server API for Hermes service.
 // All implementations must embed UnimplementedHermesServer
 // for forward compatibility
 type HermesServer interface {
 	EventBuff(Hermes_EventBuffServer) error
-	Echo(context.Context, *Empty) (*Empty, error)
-	ListChannels(context.Context, *Empty) (*Channels, error)
-	GetChannel(context.Context, *GetChannelRequest) (*Channel, error)
 	mustEmbedUnimplementedHermesServer()
 }
 
@@ -106,15 +73,6 @@ type UnimplementedHermesServer struct {
 
 func (*UnimplementedHermesServer) EventBuff(Hermes_EventBuffServer) error {
 	return status.Errorf(codes.Unimplemented, "method EventBuff not implemented")
-}
-func (*UnimplementedHermesServer) Echo(context.Context, *Empty) (*Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Echo not implemented")
-}
-func (*UnimplementedHermesServer) ListChannels(context.Context, *Empty) (*Channels, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListChannels not implemented")
-}
-func (*UnimplementedHermesServer) GetChannel(context.Context, *GetChannelRequest) (*Channel, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetChannel not implemented")
 }
 func (*UnimplementedHermesServer) mustEmbedUnimplementedHermesServer() {}
 
@@ -148,77 +106,10 @@ func (x *hermesEventBuffServer) Recv() (*Event, error) {
 	return m, nil
 }
 
-func _Hermes_Echo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Empty)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HermesServer).Echo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/proto.Hermes/Echo",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HermesServer).Echo(ctx, req.(*Empty))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Hermes_ListChannels_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Empty)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HermesServer).ListChannels(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/proto.Hermes/ListChannels",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HermesServer).ListChannels(ctx, req.(*Empty))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Hermes_GetChannel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetChannelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HermesServer).GetChannel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/proto.Hermes/GetChannel",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HermesServer).GetChannel(ctx, req.(*GetChannelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 var _Hermes_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "proto.Hermes",
 	HandlerType: (*HermesServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Echo",
-			Handler:    _Hermes_Echo_Handler,
-		},
-		{
-			MethodName: "ListChannels",
-			Handler:    _Hermes_ListChannels_Handler,
-		},
-		{
-			MethodName: "GetChannel",
-			Handler:    _Hermes_GetChannel_Handler,
-		},
-	},
+	Methods:     []grpc.MethodDesc{},
 	Streams: []grpc.StreamDesc{
 		{
 			StreamName:    "EventBuff",

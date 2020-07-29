@@ -25,108 +25,6 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
-type ChannelID struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-}
-
-func (x *ChannelID) Reset() {
-	*x = ChannelID{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_hermes_proto_msgTypes[0]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *ChannelID) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ChannelID) ProtoMessage() {}
-
-func (x *ChannelID) ProtoReflect() protoreflect.Message {
-	mi := &file_hermes_proto_msgTypes[0]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ChannelID.ProtoReflect.Descriptor instead.
-func (*ChannelID) Descriptor() ([]byte, []int) {
-	return file_hermes_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *ChannelID) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
-type GetChannelRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Id        string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Timestamp string `protobuf:"bytes,2,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
-}
-
-func (x *GetChannelRequest) Reset() {
-	*x = GetChannelRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_hermes_proto_msgTypes[1]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetChannelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetChannelRequest) ProtoMessage() {}
-
-func (x *GetChannelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_hermes_proto_msgTypes[1]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetChannelRequest.ProtoReflect.Descriptor instead.
-func (*GetChannelRequest) Descriptor() ([]byte, []int) {
-	return file_hermes_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *GetChannelRequest) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
-func (x *GetChannelRequest) GetTimestamp() string {
-	if x != nil {
-		return x.Timestamp
-	}
-	return ""
-}
-
 type Signal struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -140,7 +38,7 @@ type Signal struct {
 func (x *Signal) Reset() {
 	*x = Signal{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_hermes_proto_msgTypes[2]
+		mi := &file_hermes_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -153,7 +51,7 @@ func (x *Signal) String() string {
 func (*Signal) ProtoMessage() {}
 
 func (x *Signal) ProtoReflect() protoreflect.Message {
-	mi := &file_hermes_proto_msgTypes[2]
+	mi := &file_hermes_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -166,7 +64,7 @@ func (x *Signal) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Signal.ProtoReflect.Descriptor instead.
 func (*Signal) Descriptor() ([]byte, []int) {
-	return file_hermes_proto_rawDescGZIP(), []int{2}
+	return file_hermes_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Signal) GetMessageID() string {
@@ -201,7 +99,7 @@ type Channels struct {
 func (x *Channels) Reset() {
 	*x = Channels{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_hermes_proto_msgTypes[3]
+		mi := &file_hermes_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -214,7 +112,7 @@ func (x *Channels) String() string {
 func (*Channels) ProtoMessage() {}
 
 func (x *Channels) ProtoReflect() protoreflect.Message {
-	mi := &file_hermes_proto_msgTypes[3]
+	mi := &file_hermes_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -227,7 +125,7 @@ func (x *Channels) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Channels.ProtoReflect.Descriptor instead.
 func (*Channels) Descriptor() ([]byte, []int) {
-	return file_hermes_proto_rawDescGZIP(), []int{3}
+	return file_hermes_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Channels) GetMsg() []*Channel {
@@ -254,7 +152,7 @@ type Channel struct {
 func (x *Channel) Reset() {
 	*x = Channel{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_hermes_proto_msgTypes[4]
+		mi := &file_hermes_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -267,7 +165,7 @@ func (x *Channel) String() string {
 func (*Channel) ProtoMessage() {}
 
 func (x *Channel) ProtoReflect() protoreflect.Message {
-	mi := &file_hermes_proto_msgTypes[4]
+	mi := &file_hermes_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -280,7 +178,7 @@ func (x *Channel) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Channel.ProtoReflect.Descriptor instead.
 func (*Channel) Descriptor() ([]byte, []int) {
-	return file_hermes_proto_rawDescGZIP(), []int{4}
+	return file_hermes_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Channel) GetMembers() []string {
@@ -346,7 +244,7 @@ type Event struct {
 func (x *Event) Reset() {
 	*x = Event{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_hermes_proto_msgTypes[5]
+		mi := &file_hermes_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -359,7 +257,7 @@ func (x *Event) String() string {
 func (*Event) ProtoMessage() {}
 
 func (x *Event) ProtoReflect() protoreflect.Message {
-	mi := &file_hermes_proto_msgTypes[5]
+	mi := &file_hermes_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -372,7 +270,7 @@ func (x *Event) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Event.ProtoReflect.Descriptor instead.
 func (*Event) Descriptor() ([]byte, []int) {
-	return file_hermes_proto_rawDescGZIP(), []int{5}
+	return file_hermes_proto_rawDescGZIP(), []int{3}
 }
 
 func (m *Event) GetEvent() isEvent_Event {
@@ -412,55 +310,15 @@ func (*Event_Signal) isEvent_Event() {}
 
 func (*Event_NewMessage) isEvent_Event() {}
 
-type Empty struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-}
-
-func (x *Empty) Reset() {
-	*x = Empty{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_hermes_proto_msgTypes[6]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *Empty) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Empty) ProtoMessage() {}
-
-func (x *Empty) ProtoReflect() protoreflect.Message {
-	mi := &file_hermes_proto_msgTypes[6]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Empty.ProtoReflect.Descriptor instead.
-func (*Empty) Descriptor() ([]byte, []int) {
-	return file_hermes_proto_rawDescGZIP(), []int{6}
-}
-
 type Message struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
 	MessageType string `protobuf:"bytes,1,opt,name=messageType,proto3" json:"messageType,omitempty"`
-	From        string `protobuf:"bytes,2,opt,name=from,proto3" json:"from,omitempty"`
-	Channel     string `protobuf:"bytes,3,opt,name=channel,proto3" json:"channel,omitempty"`
-	To          string `protobuf:"bytes,4,opt,name=to,proto3" json:"to,omitempty"`
+	From        int64  `protobuf:"varint,2,opt,name=from,proto3" json:"from,omitempty"`
+	To          int64  `protobuf:"varint,4,opt,name=to,proto3" json:"to,omitempty"`
 	Body        string `protobuf:"bytes,5,opt,name=body,proto3" json:"body,omitempty"`
-	SessionID   string `protobuf:"bytes,6,opt,name=sessionID,proto3" json:"sessionID,omitempty"`
 	MessageID   string `protobuf:"bytes,7,opt,name=messageID,proto3" json:"messageID,omitempty"`
 	ChannelID   string `protobuf:"bytes,8,opt,name=channelID,proto3" json:"channelID,omitempty"`
 	Time        string `protobuf:"bytes,9,opt,name=time,proto3" json:"time,omitempty"`
@@ -470,7 +328,7 @@ type Message struct {
 func (x *Message) Reset() {
 	*x = Message{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_hermes_proto_msgTypes[7]
+		mi := &file_hermes_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -483,7 +341,7 @@ func (x *Message) String() string {
 func (*Message) ProtoMessage() {}
 
 func (x *Message) ProtoReflect() protoreflect.Message {
-	mi := &file_hermes_proto_msgTypes[7]
+	mi := &file_hermes_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -496,7 +354,7 @@ func (x *Message) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Message.ProtoReflect.Descriptor instead.
 func (*Message) Descriptor() ([]byte, []int) {
-	return file_hermes_proto_rawDescGZIP(), []int{7}
+	return file_hermes_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *Message) GetMessageType() string {
@@ -506,37 +364,23 @@ func (x *Message) GetMessageType() string {
 	return ""
 }
 
-func (x *Message) GetFrom() string {
+func (x *Message) GetFrom() int64 {
 	if x != nil {
 		return x.From
 	}
-	return ""
+	return 0
 }
 
-func (x *Message) GetChannel() string {
-	if x != nil {
-		return x.Channel
-	}
-	return ""
-}
-
-func (x *Message) GetTo() string {
+func (x *Message) GetTo() int64 {
 	if x != nil {
 		return x.To
 	}
-	return ""
+	return 0
 }
 
 func (x *Message) GetBody() string {
 	if x != nil {
 		return x.Body
-	}
-	return ""
-}
-
-func (x *Message) GetSessionID() string {
-	if x != nil {
-		return x.SessionID
 	}
 	return ""
 }
@@ -573,13 +417,7 @@ var File_hermes_proto protoreflect.FileDescriptor
 
 var file_hermes_proto_rawDesc = []byte{
 	0x0a, 0x0c, 0x68, 0x65, 0x72, 0x6d, 0x65, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x05,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x1b, 0x0a, 0x09, 0x63, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c,
-	0x49, 0x44, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02,
-	0x69, 0x64, 0x22, 0x41, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x1c, 0x0a, 0x09, 0x74, 0x69, 0x6d, 0x65, 0x73,
-	0x74, 0x61, 0x6d, 0x70, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x74, 0x69, 0x6d, 0x65,
-	0x73, 0x74, 0x61, 0x6d, 0x70, 0x22, 0x5c, 0x0a, 0x06, 0x53, 0x69, 0x67, 0x6e, 0x61, 0x6c, 0x12,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x5c, 0x0a, 0x06, 0x53, 0x69, 0x67, 0x6e, 0x61, 0x6c, 0x12,
 	0x1c, 0x0a, 0x09, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01,
 	0x28, 0x09, 0x52, 0x09, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x49, 0x44, 0x12, 0x1c, 0x0a,
 	0x09, 0x63, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x49, 0x44, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
@@ -618,37 +456,24 @@ var file_hermes_proto_rawDesc = []byte{
 	0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e,
 	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x48, 0x00, 0x52,
 	0x0a, 0x6e, 0x65, 0x77, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x42, 0x07, 0x0a, 0x05, 0x65,
-	0x76, 0x65, 0x6e, 0x74, 0x22, 0x07, 0x0a, 0x05, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x22, 0x83, 0x02,
-	0x0a, 0x07, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x20, 0x0a, 0x0b, 0x6d, 0x65, 0x73,
-	0x73, 0x61, 0x67, 0x65, 0x54, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b,
-	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x54, 0x79, 0x70, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x66,
-	0x72, 0x6f, 0x6d, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x66, 0x72, 0x6f, 0x6d, 0x12,
-	0x18, 0x0a, 0x07, 0x63, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x07, 0x63, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x12, 0x0e, 0x0a, 0x02, 0x74, 0x6f, 0x18,
-	0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x74, 0x6f, 0x12, 0x12, 0x0a, 0x04, 0x62, 0x6f, 0x64,
-	0x79, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x12, 0x1c, 0x0a,
-	0x09, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x49, 0x44, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x09, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x49, 0x44, 0x12, 0x1c, 0x0a, 0x09, 0x6d,
-	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x49, 0x44, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09,
-	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x49, 0x44, 0x12, 0x1c, 0x0a, 0x09, 0x63, 0x68, 0x61,
-	0x6e, 0x6e, 0x65, 0x6c, 0x49, 0x44, 0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x63, 0x68,
-	0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x49, 0x44, 0x12, 0x12, 0x0a, 0x04, 0x74, 0x69, 0x6d, 0x65, 0x18,
-	0x09, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x74, 0x69, 0x6d, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x73,
-	0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x73, 0x74, 0x61,
-	0x74, 0x75, 0x73, 0x32, 0xc0, 0x01, 0x0a, 0x06, 0x48, 0x65, 0x72, 0x6d, 0x65, 0x73, 0x12, 0x2b,
-	0x0a, 0x09, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x42, 0x75, 0x66, 0x66, 0x12, 0x0c, 0x2e, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x2e, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x1a, 0x0c, 0x2e, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x2e, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x28, 0x01, 0x30, 0x01, 0x12, 0x22, 0x0a, 0x04, 0x45,
-	0x63, 0x68, 0x6f, 0x12, 0x0c, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x45, 0x6d, 0x70, 0x74,
-	0x79, 0x1a, 0x0c, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x12,
-	0x2d, 0x0a, 0x0c, 0x4c, 0x69, 0x73, 0x74, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x73, 0x12,
-	0x0c, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x0f, 0x2e,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x73, 0x12, 0x36,
-	0x0a, 0x0a, 0x47, 0x65, 0x74, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x12, 0x18, 0x2e, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x47, 0x65, 0x74, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x43,
-	0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x42, 0x07, 0x5a, 0x05, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
-	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x76, 0x65, 0x6e, 0x74, 0x22, 0xcb, 0x01, 0x0a, 0x07, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
+	0x12, 0x20, 0x0a, 0x0b, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x54, 0x79, 0x70, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x54, 0x79,
+	0x70, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x66, 0x72, 0x6f, 0x6d, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03,
+	0x52, 0x04, 0x66, 0x72, 0x6f, 0x6d, 0x12, 0x0e, 0x0a, 0x02, 0x74, 0x6f, 0x18, 0x04, 0x20, 0x01,
+	0x28, 0x03, 0x52, 0x02, 0x74, 0x6f, 0x12, 0x12, 0x0a, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x18, 0x05,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x12, 0x1c, 0x0a, 0x09, 0x6d, 0x65,
+	0x73, 0x73, 0x61, 0x67, 0x65, 0x49, 0x44, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x6d,
+	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x49, 0x44, 0x12, 0x1c, 0x0a, 0x09, 0x63, 0x68, 0x61, 0x6e,
+	0x6e, 0x65, 0x6c, 0x49, 0x44, 0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x63, 0x68, 0x61,
+	0x6e, 0x6e, 0x65, 0x6c, 0x49, 0x44, 0x12, 0x12, 0x0a, 0x04, 0x74, 0x69, 0x6d, 0x65, 0x18, 0x09,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x74, 0x69, 0x6d, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x73, 0x74,
+	0x61, 0x74, 0x75, 0x73, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74,
+	0x75, 0x73, 0x32, 0x35, 0x0a, 0x06, 0x48, 0x65, 0x72, 0x6d, 0x65, 0x73, 0x12, 0x2b, 0x0a, 0x09,
+	0x45, 0x76, 0x65, 0x6e, 0x74, 0x42, 0x75, 0x66, 0x66, 0x12, 0x0c, 0x2e, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x2e, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x1a, 0x0c, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e,
+	0x45, 0x76, 0x65, 0x6e, 0x74, 0x28, 0x01, 0x30, 0x01, 0x42, 0x07, 0x5a, 0x05, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -663,39 +488,30 @@ func file_hermes_proto_rawDescGZIP() []byte {
 	return file_hermes_proto_rawDescData
 }
 
-var file_hermes_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_hermes_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_hermes_proto_goTypes = []interface{}{
-	(*ChannelID)(nil),         // 0: proto.channelID
-	(*GetChannelRequest)(nil), // 1: proto.GetChannelRequest
-	(*Signal)(nil),            // 2: proto.Signal
-	(*Channels)(nil),          // 3: proto.Channels
-	(*Channel)(nil),           // 4: proto.Channel
-	(*Event)(nil),             // 5: proto.Event
-	(*Empty)(nil),             // 6: proto.Empty
-	(*Message)(nil),           // 7: proto.Message
-	nil,                       // 8: proto.Channel.RolesEntry
-	nil,                       // 9: proto.Channel.MessagesEntry
+	(*Signal)(nil),   // 0: proto.Signal
+	(*Channels)(nil), // 1: proto.Channels
+	(*Channel)(nil),  // 2: proto.Channel
+	(*Event)(nil),    // 3: proto.Event
+	(*Message)(nil),  // 4: proto.Message
+	nil,              // 5: proto.Channel.RolesEntry
+	nil,              // 6: proto.Channel.MessagesEntry
 }
 var file_hermes_proto_depIdxs = []int32{
-	4,  // 0: proto.Channels.msg:type_name -> proto.Channel
-	8,  // 1: proto.Channel.roles:type_name -> proto.Channel.RolesEntry
-	9,  // 2: proto.Channel.messages:type_name -> proto.Channel.MessagesEntry
-	2,  // 3: proto.Event.signal:type_name -> proto.Signal
-	7,  // 4: proto.Event.newMessage:type_name -> proto.Message
-	7,  // 5: proto.Channel.MessagesEntry.value:type_name -> proto.Message
-	5,  // 6: proto.Hermes.EventBuff:input_type -> proto.Event
-	6,  // 7: proto.Hermes.Echo:input_type -> proto.Empty
-	6,  // 8: proto.Hermes.ListChannels:input_type -> proto.Empty
-	1,  // 9: proto.Hermes.GetChannel:input_type -> proto.GetChannelRequest
-	5,  // 10: proto.Hermes.EventBuff:output_type -> proto.Event
-	6,  // 11: proto.Hermes.Echo:output_type -> proto.Empty
-	3,  // 12: proto.Hermes.ListChannels:output_type -> proto.Channels
-	4,  // 13: proto.Hermes.GetChannel:output_type -> proto.Channel
-	10, // [10:14] is the sub-list for method output_type
-	6,  // [6:10] is the sub-list for method input_type
-	6,  // [6:6] is the sub-list for extension type_name
-	6,  // [6:6] is the sub-list for extension extendee
-	0,  // [0:6] is the sub-list for field type_name
+	2, // 0: proto.Channels.msg:type_name -> proto.Channel
+	5, // 1: proto.Channel.roles:type_name -> proto.Channel.RolesEntry
+	6, // 2: proto.Channel.messages:type_name -> proto.Channel.MessagesEntry
+	0, // 3: proto.Event.signal:type_name -> proto.Signal
+	4, // 4: proto.Event.newMessage:type_name -> proto.Message
+	4, // 5: proto.Channel.MessagesEntry.value:type_name -> proto.Message
+	3, // 6: proto.Hermes.EventBuff:input_type -> proto.Event
+	3, // 7: proto.Hermes.EventBuff:output_type -> proto.Event
+	7, // [7:8] is the sub-list for method output_type
+	6, // [6:7] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_hermes_proto_init() }
@@ -705,30 +521,6 @@ func file_hermes_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_hermes_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ChannelID); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_hermes_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetChannelRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_hermes_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Signal); i {
 			case 0:
 				return &v.state
@@ -740,7 +532,7 @@ func file_hermes_proto_init() {
 				return nil
 			}
 		}
-		file_hermes_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_hermes_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Channels); i {
 			case 0:
 				return &v.state
@@ -752,7 +544,7 @@ func file_hermes_proto_init() {
 				return nil
 			}
 		}
-		file_hermes_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_hermes_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Channel); i {
 			case 0:
 				return &v.state
@@ -764,7 +556,7 @@ func file_hermes_proto_init() {
 				return nil
 			}
 		}
-		file_hermes_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_hermes_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Event); i {
 			case 0:
 				return &v.state
@@ -776,19 +568,7 @@ func file_hermes_proto_init() {
 				return nil
 			}
 		}
-		file_hermes_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Empty); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_hermes_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_hermes_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Message); i {
 			case 0:
 				return &v.state
@@ -801,7 +581,7 @@ func file_hermes_proto_init() {
 			}
 		}
 	}
-	file_hermes_proto_msgTypes[5].OneofWrappers = []interface{}{
+	file_hermes_proto_msgTypes[3].OneofWrappers = []interface{}{
 		(*Event_Signal)(nil),
 		(*Event_NewMessage)(nil),
 	}
@@ -811,7 +591,7 @@ func file_hermes_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_hermes_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

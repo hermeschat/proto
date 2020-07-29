@@ -39,4 +39,5 @@ message Message {
     string channelID = 8;
     string time=9;
     int32 status = 10;
+    int64 parent = 11;
 }

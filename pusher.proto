@@ -1,0 +1,24 @@
+syntax = "proto3";
+package proto;
+option go_package = "proto";
+
+service Pusher {
+  rpc PusherEventBuff(stream PusherEvent) returns(stream PusherEvent);
+}
+
+message PusherEvent {
+  oneof event {
+    Client client = 1;
+    Server server = 2;
+  }
+}
+
+message Client {
+  string toSub = 1;
+  bytes data = 2;
+}
+
+message Server {
+  string fromSub = 1;
+  bytes data = 2;
+}

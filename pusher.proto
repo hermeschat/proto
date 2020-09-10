@@ -10,6 +10,7 @@ message PusherEvent {
   oneof event {
     Client client = 1;
     Server server = 2;
+    Join join = 3;
   }
 }
 
@@ -21,4 +22,8 @@ message Client {
 message Server {
   string fromSub = 1;
   bytes data = 2;
+}
+
+message Join {
+  string mySub = 1;
 }
